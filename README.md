@@ -13,7 +13,7 @@ Use pacman and AUR if installing for Arch linux.
 
 Test you installation by
 ```bash
-docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
+docker run --rm --gpus all nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04 nvidia-smi
 ```
 You should see all your GPUs in `nvidia-smi`.
 
@@ -59,7 +59,7 @@ docker-compose -f docker-compose-batch.yml run --rm deeplytough
 Edit command in YAML file for you needs.
 
 ## Run as a service
-
+You can run program in background, and it will restart automatically if failed.
 ### Start execution
 ```bash
 docker-compose -f docker-compose-batch.yml up -d
