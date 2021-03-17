@@ -2,12 +2,9 @@ How to run with DeeplyTough with docker-compose
 
 ## Docker
 
-1. Install Docker 19 or later
-[Docker Engine](https://docs.docker.com/engine/install/)
-2. Install docker-compose
-[Docker Compose](https://docs.docker.com/compose/install/)
-3. Install Nvidia container toolkit
-[NVIDIA Container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+1. Install [Docker Engine](https://docs.docker.com/engine/install/) 19 or later
+2. Install [Docker Compose](https://docs.docker.com/compose/install/)
+3. Install [NVIDIA Container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 4. Add your user to docker group
 ```bash
 usermod -aG docker $USER
@@ -18,7 +15,7 @@ Test you installation by
 ```bash
 docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 ```
-You should see all your GPUs
+You should see all your GPUs in `nvidia-smi`.
 
 ## Installing source code
 ```bash
@@ -63,15 +60,15 @@ Edit command in YAML file for you needs.
 
 ## Run as a service
 
-# Start execution
+### Start execution
 ```bash
 docker-compose -f docker-compose-batch.yml up -d
 ```
-# View logs
+### View logs
 ```bash
 docker-compose logs
 ```
-# Stop execution
+### Stop execution
 ```bash
 docker-compose -f docker-compose-batch.yml down
 ```
