@@ -1,0 +1,20 @@
+version: '2.3'
+
+services:
+
+  deeplytough:
+    image: deeplytough
+    build: DeeplyTough
+    container_name: deeplytough
+    #command: conda run -n deeplytough python /app/deeplytough/scripts/toughm1_benchmark.py 
+    #         --output_dir /app/results --device 'cuda:0' --nworkers 4 
+    #         --net /app/networks/deeplytough_toughm1_test.pth.tar
+    command: /bin/bash 
+    runtime: nvidia
+    restart: on-failure
+    volumes:
+      - ./results:/app/results
+      - ./datasets:/app/datasets
+        #  - ./networks:/app/networks # Optional if you use pre-trained networks
+    environment:
+      - STRUCTURE_DATA_DIR=/app/datasets
