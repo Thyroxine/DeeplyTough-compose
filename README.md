@@ -4,20 +4,20 @@ How to run with DeeplyTough with docker-compose
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) 19 or later
 2. Install [Docker Compose](https://docs.docker.com/compose/install/)
-3. Install [NVIDIA Container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+3. Install [NVIDIA Container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html), including essential package `nvidia-docker2`
 4. Add your user to docker group
 ```bash
 usermod -aG docker $USER
 ```
 Use pacman and AUR if installing for Arch linux.
 
-Test you installation by
+Test your installation by
 ```bash
 docker run --rm --gpus all nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04 nvidia-smi
 ```
 You should see all your GPUs in `nvidia-smi`.
 
-## Installing source code
+## Install source code
 ```bash
 git clone https://github.com/BenevolentAI/DeeplyTough
 ```
