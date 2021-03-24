@@ -17,12 +17,14 @@ docker run --rm --gpus all nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04 nvidia-smi
 ```
 You should see all your GPUs in `nvidia-smi`.
 
+## You can build container youself or download it from GitHub Docker Registry
+
 ## Installing source code
 ```bash
 git clone https://github.com/BenevolentAI/DeeplyTough
 ```
 
-## Build container
+## Build container locally
 ```bash
 docker-compose build
 ```
@@ -71,5 +73,19 @@ docker-compose logs
 ### Stop execution
 ```bash
 docker-compose -f docker-compose-batch.yml down
+```
+
+### Running already build container from GitHub Docker Registry
+If you do not want to build container by yourself, you can use container from GitHub Docker Registry.
+1. (Optional) Install  `docker-credential-secretservice` to store your passwords securely.
+2. Obtain a GitHub token https://github.com/settings/tokens/new with `read:packages` permission
+3. Save your token to file `token.txt`
+4. Login to registry by command:
+```bash
+cat token.txt | docker login https://docker.pkg.github.com -u <your username> --password-stdin
+```
+5. Run batch version with container from repository:
+```bash
+docker-compose -f docker-compose-repo.yml run --rm deeplytough
 ```
 
