@@ -75,7 +75,7 @@ docker-compose logs
 docker-compose -f docker-compose-batch.yml down
 ```
 
-### Running already build container from GitHub Docker Registry
+## Running already build container from GitHub Docker Registry
 If you do not want to build container by yourself, you can use container from GitHub Docker Registry.
 1. (Optional) Install  `docker-credential-secretservice` to store your passwords securely.
 2. Obtain a GitHub token https://github.com/settings/tokens/new with `read:packages` permission
